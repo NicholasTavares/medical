@@ -21,5 +21,5 @@ export class Doctor {
   cep: number;
 
   @Column()
-  specialty: string[];
+  specialty: string;
 }

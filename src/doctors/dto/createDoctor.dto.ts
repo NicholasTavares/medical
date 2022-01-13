@@ -16,6 +16,6 @@ export class CreateDoctorDto {
   @IsString()
   readonly cep: number;
 
-  @IsString({ each: true })
-  readonly specialty: string[];
+  @IsString()
+  readonly specialty: string;
 }

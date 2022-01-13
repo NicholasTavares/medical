@@ -26,6 +26,7 @@ export class DoctorsService {
   }
 
   create(createDoctorDto: CreateDoctorDto) {
+    console.log(createDoctorDto);
     const doctor = this.doctorRepository.create(createDoctorDto);
 
     return this.doctorRepository.save(doctor);

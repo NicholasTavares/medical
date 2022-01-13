@@ -8,10 +8,10 @@ export class CreateDoctorDto {
   readonly crm: number;
 
   @IsString()
-  readonly tel_fixo: string;
+  readonly tel_fixo: number;
 
   @IsString()
-  readonly celular: string;
+  readonly celular: number;
 
   @IsString()
   readonly cep: number;

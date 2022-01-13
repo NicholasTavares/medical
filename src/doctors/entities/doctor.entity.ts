@@ -37,5 +37,5 @@ export class Doctor {
   updated_at: Date;
 
   @DeleteDateColumn()
-  deleted_at: Date;
+  deleted_at?: Date;
 }

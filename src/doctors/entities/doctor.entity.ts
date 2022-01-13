@@ -12,10 +12,10 @@ export class Doctor {
   crm: number;
 
   @Column()
-  tel_fixo: string;
+  tel_fixo: number;
 
   @Column()
-  celular: string;
+  phone: number;
 
   @Column()
   cep: number;

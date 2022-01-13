@@ -17,10 +17,6 @@ import { DoctorsModule } from './doctors/doctors.module';
       database: 'medical',
       autoLoadEntities: true,
       synchronize: true,
-      migrations: ['./src/migrations/*.ts'],
-      cli: {
-        migrationsDir: './src/migrations',
-      },
     }),
   ],
   controllers: [AppController, DoctorsController],

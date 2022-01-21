@@ -1,21 +1,24 @@
-import { IsNumberString, IsString } from 'class-validator';
+import { ArrayMaxSize, ArrayMinSize, IsArray, IsString } from 'class-validator';
+import { Specialty } from '../entities/specialty.entity';
 
 export class CreateDoctorDto {
   @IsString()
   readonly name: string;
 
-  @IsNumberString()
-  readonly crm: number;
+  @IsString()
+  readonly crm: string;
 
   @IsString()
-  readonly tel_fixo: number;
+  readonly tel_fixo: string;
 
   @IsString()
-  readonly celular: number;
+  readonly phone: string;
 
   @IsString()
-  readonly cep: number;
+  readonly cep: string;
 
-  @IsString()
-  readonly specialty: string;
+  @IsArray()
+  @ArrayMinSize(2)
+  @ArrayMaxSize(8)
+  readonly specialties: Specialty[];
 }

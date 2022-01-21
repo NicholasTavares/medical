@@ -3,9 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Specialty } from './specialty.entity';
 
 @Entity('doctors')
 export class Doctor {
@@ -16,26 +19,29 @@ export class Doctor {
   name: string;
 
   @Column()
-  crm: number;
+  crm: string;
 
   @Column()
-  tel_fixo: number;
+  tel_fixo: string;
 
   @Column()
-  phone: number;
+  phone: string;
 
   @Column()
-  cep: number;
+  cep: string;
 
-  @Column()
-  specialty: string;
+  @JoinTable()
+  @ManyToMany(() => Specialty, (specialty: Specialty) => specialty.specialty, {
+    cascade: true,
+  })
+  specialties: Specialty[];
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({ type: 'timestamp', nullable: true })
   deleted_at?: Date;
 }
